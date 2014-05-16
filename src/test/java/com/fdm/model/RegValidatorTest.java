@@ -52,6 +52,18 @@ public class RegValidatorTest {
 	}
 	
 	@Test 
+	public void testValitadeReturnsFalseWhenUserCheckedBecauseOfShortPassword(){
+		when(mockstorage.get("a")).thenReturn(null);
+		assertFalse(val.validate("a 1234567 c d"));
+	}
+	
+	@Test 
+	public void testValitadeReturnsFalseWhenUserCheckedBecauseOfPasswordWithoutDigits(){
+		when(mockstorage.get("a")).thenReturn(null);
+		assertFalse(val.validate("a abcdefgh c d"));
+	}
+	
+	@Test 
 	public void testValitadeReturnsFalseWhenUserPasswordTooShort(){
 		when(mockstorage.get("a")).thenReturn(null);
 		assertFalse(val.validate("a b c d"));

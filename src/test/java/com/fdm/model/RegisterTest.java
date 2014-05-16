@@ -1,5 +1,6 @@
 package com.fdm.model;
 
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
@@ -36,5 +37,12 @@ public class RegisterTest {
 	}
 	
 
-	
+	@Test 
+	public void testRegisterCreateUserMethodWorksCorrectly(){
+		 User user = reg.createUser("a b c d");
+		assertEquals("a", user.getUsername());
+		assertEquals("b", user.getPassword());
+		assertEquals("c", user.getFirstname());
+		assertEquals("d", user.getLastname());
+	}
 }

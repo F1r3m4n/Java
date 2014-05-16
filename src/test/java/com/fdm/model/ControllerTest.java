@@ -59,6 +59,13 @@ public class ControllerTest {
 		verify(mockreg, never()).registerUser(anyString());
 	}
 	
+	@Test
+	public void testHandleMethodCallsRegisterUserMethodFromRegisterAndValidation(){
+		when(mockview.getUserInput()).thenReturn("nlamprou N12345678 nick lamprou");
+		when(mockval.validate("nlamprou N12345678 nick lamprou")).thenReturn(true);
+		con.handle();
+		verify(mockreg).registerUser("nlamprou N12345678 nick lamprou");
+	}
 	
 
 }

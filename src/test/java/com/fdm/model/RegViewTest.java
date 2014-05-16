@@ -44,5 +44,10 @@ public class RegViewTest {
 	}
 
 	@Test
-	public void testRegView
+	public void testRegViewRetrnsCorrectStringWhenGetUserInput(){
+		String request4 = "lamprou\n12345678\nnick\nlamprou";
+		Scanner scanner = new Scanner(new ByteArrayInputStream(request4.getBytes()));		
+		RegView rv = new RegView(scanner);
+		assertEquals("lamprou 12345678 nick lamprou", rv.getUserInput());
+	}
 }
